@@ -57,6 +57,8 @@ What is shown below is the actual backend consists of:
  * A field for entering serial keys
  * A table-style list with serial numbers previously entered and the ID/IMEI of the associated device (if already registered), as well as some control options (edit/delete serials or ID/IMEI)
 
+_*Note* - Edit option is not enabled at the moment_
+
 === Android Library Guide ===
 
-see the API Developer's Guide
+see RemoteUnlockerAPI Guide
