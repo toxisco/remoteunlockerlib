@@ -25,6 +25,6 @@ Here are the permissions to set:
  * android.permission._*{{{READ_PHONE_STATE}}}*_
  * android.permission._*INTERNET*_
 
-== RemoteUnlockerDialog Class and the Unlockable Interface ==
+== {{{RemoteUnlockerDialog}}} Class and the {{{Unlockable}}} Interface ==
 
 da scrivere
