@@ -131,7 +131,7 @@ public class RemoteUnlockerDialog extends Dialog {
 			
 			@Override
 			public void onClick(View arg0) {
-				context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://ggxsoft.net")));
+				context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/remoteunlockerlib/")));
 			}
 		});
 		
