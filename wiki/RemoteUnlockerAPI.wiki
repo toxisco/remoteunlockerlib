@@ -1,0 +1,24 @@
+#summary API Developer's Guide
+#labels Featured,Phase-Implementation
+
+= API Introduction =
+
+Once the PHP backend has been installed on the web hosting service and the Android library has been properly imported into the Eclipse workspace (see [RemoteUnlocker] Guide for details) is missing very little to use the functionality that the library provides.
+
+=== Setup your project ===
+
+With the library already present in the workspace, here's what you need to do to import it into your project:
+  # enter in your project's properties: you can right click and select _Properties_, or you can press _Alt + Enter_ or you can select _Properties_ from the _Project menu_
+  # in the properties menu on the right, select _Android_
+  # In the bottom right (Library Section) click on the _Add..._ button
+  # select _RemoteUnlocker_ and click _Ok_
+  # Click _Apply_ then _OK_ to apply the change and close the Properties window
+
+==== Edit AndroidManifest.xml ====
+
+Now that the library has been successfully imported into your project you must add some _Permissions_ to the _*AndroidManifest.xml*_.
+
+Here are the permissions to set:
+
+ * android.permission._*{{{READ_PHONE_STATE}}}*_
+ * android.permission._*INTERNET*_
