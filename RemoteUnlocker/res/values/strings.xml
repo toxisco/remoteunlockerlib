@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="insert_unlock">Insert unlock code</string>
+    <string name="unlock">Unlock</string>
+    <string name="cancel">Cancel</string>
+    <string name="progressdialog_title">Serial validation</string>
+    <string name="progressdialog_message">Checking serial,\nplease wait...</string>
+    <string name="powered_by">Powered by RemoteUnlocker</string>
+    <string name="ok">Ok</string>
+    <string name="app_already_unlocked">Already unlocked</string>
+</resources>
