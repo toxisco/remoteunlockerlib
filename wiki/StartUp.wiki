@@ -20,7 +20,7 @@ Before you start using the library requires a few simple steps:
 
 To install the backend is sufficient:
 
- # download the file [remoteunlocker_php_1.0.zip] (in Donwloads section) and extract the content in a folder
+ # download the file *remoteunlocker_php_<version>.zip* (in Donwloads section) and extract the content in a local folder
  # open the file *lib/config.php* with your favorite text (or php) editor, edit HOST, USERNAME, PASSWORD, DATABASE and RU_PASSWORD fields and then save the file. _*Note* - RU_PASSWORD will be the access password for the admin backend._
  # copy all above files and folders to the choosen destination folder in your web hosting service. _*Note* - it is important to take a note of the path where you installed the backend (eg *_myweb.com/remoteunlocker_*) _
  # Run the script setup.php from the browser (eg _myweb.com/remoteunlocker/setup.php_)
