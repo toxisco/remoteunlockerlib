@@ -1,6 +1,8 @@
 #summary How-To
 #labels Featured,Phase-Deploy
 
+<wiki:toc max_depth="4" />
+
 = Introduction =
 
 RemoteUnlocker is an Android developer tool with which you can implement a serial-codes control system in an easy and intuitive way.
