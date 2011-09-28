@@ -36,7 +36,7 @@ Da scrivere procedura di import della libreria
 Once the library and the backend has been installed properly, the tool usage is divided into:
 
   * Inclusion of serial numbers in the backend (_admin.php_)
-  * Import the library into your Android project and use the RemoteUnlocker API
+  * Import the library into your Android project and use the RemoteUnlockerAPI
 
 === PHP Backend guide ===
 
