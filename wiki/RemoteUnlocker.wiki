@@ -16,7 +16,7 @@ Before you start using the library requires a few simple steps:
  # copy the php backend on your web hosting service and install the database (setup.php)
  # import the library into your workspace (eg Eclipse)
 
-==== Install PHP Backend ====
+=== Install PHP Backend ===
 
 To install the backend is sufficient:
 
@@ -27,7 +27,7 @@ To install the backend is sufficient:
 
 A message will report the outcome of the transaction (database installed successfully or error during installation)
 
-==== Install Android library ====
+=== Install Android library ===
 
 Da scrivere procedura di import della libreria
 
@@ -38,7 +38,7 @@ Once the library and the backend has been installed properly, the tool usage is 
   * Inclusion of serial numbers in the backend (_admin.php_)
   * Import the library into your Android project and use the RemoteUnlocker API
 
-==== PHP Backend guide ====
+=== PHP Backend guide ===
 
 The use of the php backend is very intuitive. Actually we just need to get started:
 
@@ -50,6 +50,6 @@ What is shown below is the actual backend consists of:
  * A field for entering serial keys
  * A table-style list with serial numbers previously entered and the ID/IMEI of the associated device (if already registered), as well as some control options (edit/delete serials or ID/IMEI)
 
-==== Android Library Guide ====
+=== Android Library Guide ===
 
 see the API Developer's Guide
