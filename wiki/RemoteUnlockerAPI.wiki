@@ -59,3 +59,15 @@ Assuming you're creating a {{{RemoteUnlockerDialog}}} object from a Context subc
 everywhere in the code when you need to show this kind of dialog: an _Option Menu Item_ could be a nice choice!
 
 === {{{Unlockable}}} Interface ===
+
+After {{{RemoteUnlockerDialog}}} has done its job, the outcome of the online check is saved in a special key in your app's {{{SharedPreferences}}}. Also, if the Context that created the Dialog implements the interface {{{Unlockable}}}, the following method will be invoked automatically:
+
+{{{
+ public void onUnlockResponse(int response);
+}}}
+
+This is the method in which you should implement the "_transformation_" of your app, on the basis of the response (_int reponse_) received. So it is here that you can change a _Listener_, or eliminate an _array sizecap_, or change some {{{SharedPreferences}}} and so on.
+
+Provided that the Context implements {{{Unlockable}}} interface, the aforementioned method is invoked:
+ * _*automatically*_ when you complete the online serial check
+ * _*on request*_, whenever a particular static method is called from the {{{RemoteUnlocker}}} class (we'll see soon).
