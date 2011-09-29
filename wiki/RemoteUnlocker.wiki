@@ -1,4 +1,4 @@
-#summary How-To
+#summary How-To StartUp Guide
 #labels Featured,Phase-Deploy
 
 <wiki:toc max_depth="4" />
@@ -43,7 +43,7 @@ _*Note*_ You could see an esclamation markpoint or a red cross on the RemoteUnlo
 Once the library and the backend has been installed properly, the tool usage is divided into:
 
   * Inclusion of serial numbers in the backend (_admin.php_)
-  * Import the library into your Android project and use the RemoteUnlockerAPI
+  * Import the library into your Android project and use the [RemoteUnlockerAPI]
 
 === PHP Backend guide ===
 
@@ -61,4 +61,4 @@ _*Note* - Edit option is not enabled at the moment_
 
 === Android Library Guide ===
 
-see RemoteUnlockerAPI Guide
+see [RemoteUnlockerAPI] Guide
