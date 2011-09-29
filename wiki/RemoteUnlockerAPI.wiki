@@ -25,6 +25,37 @@ Here are the permissions to set:
  * android.permission._*{{{READ_PHONE_STATE}}}*_
  * android.permission._*INTERNET*_
 
-== {{{RemoteUnlockerDialog}}} Class and the {{{Unlockable}}} Interface ==
+== {{{RemoteUnlocker}}} Class, {{{RemoteUnlockerDialog}}} Class and the {{{Unlockable}}} Interface ==
 
-da scrivere
+Now that everything is ready you can start writing a few lines of code. The operation of the library is quite simple:
+
+ * you create a {{{RemoteUnlockerDialog}}} object, passing it certain parameters and show it to the user
+ * the user enters the unlock code that has previously received (via email or any other method)
+ * a connection to the backend php script - specifically rucheck.php - is established
+ * rucheck.php checks the received values ​​(serial code and device id/imei) and compares them with those in the database
+ * the script encodes the response as integer and some library "magic-stuff" reads that response and elaborates it
+ * at this point the Unlockable interface method {{{public void onUnlockResponse (int response);}}} is called and you can put in this method all the stuff that "transform" LITE version in PRO version
+
+=== {{{RemoteUnlockerDialog}}} Class ===
+
+This is the public constructor:
+
+{{{
+ public RemoteUnlockerDialog(Context context, String serverAddress);
+}}}
+
+where:
+ * *context* is _Context_ that is creating the dialog
+ * *serverAddress* is the path to your _rucheck.php_ script
+
+_*Note* - serverAddress must be in this format: *<host address>/<scripts folder>*, example: www.mysite.com/remoteunchecker - NO *HTTP://* BEFORE and NO *SLASH* AT THE END_
+
+Assuming you're creating a {{{RemoteUnlockerDialog}}} object from a Context subclass (eg Activity), you can write this:
+
+{{{
+ new RemoteUnlockerDialog(this, "www.mysite.com/remoteunlocker").show();
+}}}
+
+everywhere in the code when you need to show this kind of dialog: an _Option Menu Item_ could be a nice choice!
+
+=== {{{Unlockable}}} Interface ===
