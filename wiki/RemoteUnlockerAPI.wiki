@@ -48,7 +48,7 @@ where:
  * *context* is _Context_ that is creating the dialog
  * *serverAddress* is the path to your _rucheck.php_ script
 
-_*Note* - serverAddress must be in this format: *<host address>/<scripts folder>*, example: www.mysite.com/remoteunchecker - NO *HTTP://* BEFORE and NO *SLASH* AT THE END_
+_*Note* - serverAddress must be in this format: *<host address>/<scripts folder>*, example: www.mysite.com/remoteunlocker - NO *HTTP://* BEFORE and NO *SLASH* AT THE END_
 
 Assuming you're creating a {{{RemoteUnlockerDialog}}} object from a Context subclass (eg Activity), you can write this:
 
