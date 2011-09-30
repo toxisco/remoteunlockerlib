@@ -100,7 +100,7 @@ public class ValidateAsync extends AsyncTask<String, Void, Integer> {
 		
 		dialog.dismiss();
 		
-		((Unlockable)context).onUnlockResponse(result);
+		if (context instanceof Unlockable) ((Unlockable)context).onUnlockResponse(result);
 			
 	}
 
