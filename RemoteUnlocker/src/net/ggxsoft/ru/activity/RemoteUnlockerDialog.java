@@ -46,6 +46,8 @@ public class RemoteUnlockerDialog extends Dialog {
 	protected TelephonyManager tm;
 	protected TextView message, powered;
 	
+	protected boolean appUnlocked;
+	
 	/** 
 	 * Crea un oggetto di tipo Dialog. Se è presente un codice di sblocco valido vengono 
 	 * disabilitati sia il campo di inserimento del seriale che il pulsante "Ok".
@@ -60,11 +62,37 @@ public class RemoteUnlockerDialog extends Dialog {
 		link = new Connecter(serverAddress);
 		initViews();
 		if (RemoteUnlocker.getUnlockResultCode(context) == RemoteUnlocker.SERIAL_OK) {
-			serial.setText(R.string.app_already_unlocked);
-			serial.setEnabled(false);
-			serial.setInputType(InputType.TYPE_NULL);
-			ok.setEnabled(false);
+			setUnlockedStatusViews();
+			appUnlocked = true;
 		}
+	}
+	
+	@Override
+	public void show() {
+		if (!appUnlocked) {
+			if (RemoteUnlocker.getUnlockResultCode(context) == RemoteUnlocker.SERIAL_OK) {
+				setUnlockedStatusViews();
+				appUnlocked = true;
+			}
+		}
+		super.show();
+	}
+	
+	@Override
+	public void dismiss() {
+		if (!appUnlocked) serial.setText("");
+		super.dismiss();
+	}
+
+	/** 
+	 * Imposta alcune View allo stato di non editabile/non abilitato
+	 * quando l'applicazione risulta sbloccata da un codice valido
+	 * */
+	protected void setUnlockedStatusViews() {
+		serial.setText(R.string.app_already_unlocked);
+		serial.setEnabled(false);
+		serial.setInputType(InputType.TYPE_NULL);
+		ok.setEnabled(false);
 	}
 
 	/** 
