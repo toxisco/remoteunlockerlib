@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="insert_unlock">Inserisci codice di sblocco</string>
+    <string name="unlock">Sblocca</string>
+    <string name="cancel">Cancella</string>
+    <string name="progressdialog_title">Convalida</string>
+    <string name="progressdialog_message">Controllo seriale in corso,\nattendere prego...</string>
+    <string name="ok">Ok</string>
+    <string name="app_already_unlocked">Sbloccato</string>
+</resources>
