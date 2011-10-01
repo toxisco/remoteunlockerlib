@@ -36,7 +36,7 @@
  # choose _General_->_Existing Projects into Workspace_ and press _Next >_
  # choose _Select archive file_, click _Browse_ and select the Android Library JAR file that you downloaded. Click _Finish_.
 
- _*Note*_ You could see an esclamation markpoint or a red cross on the RemoteUnlocker project icon in the _Eclipse Package Explorer_. If so, just select menu _Project_->_Clean..._, choose _Clean all projects_ or _clean projects selected below_ (checking RemoteUnlocker project)
+ _*Note*_ You could see an exclamation point or a red cross on the RemoteUnlocker project icon in the _Eclipse Package Explorer_. If so, just select menu _Project_->_Clean..._, choose _Clean all projects_ or _clean projects selected below_ (checking RemoteUnlocker project)
 
 == Usage ==
 
