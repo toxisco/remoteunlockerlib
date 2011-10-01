@@ -14,7 +14,7 @@ class Checker {
 		unset($this->db);
 	}
 	
-	public function checkSerial($serial, $imei) {
+	public function checkSerial($serial, $imei, $package) {
 		$res1 = mysql_query("SELECT imei FROM serial_table WHERE serial = '$serial'", $this->db->getDbLink());
 		
 		if (!$res1) return Config::SERVER_NO_CONNECTION;
@@ -23,8 +23,11 @@ class Checker {
 			
 			$row = mysql_fetch_array($res1);			
 			if ($row['imei'] == NULL) {
-				if (mysql_query("UPDATE serial_table SET imei = '$imei' WHERE serial = '$serial'", $this->db->getDbLink())) return Config::SERIAL_OK;
-			} else return ($row['imei'] == $imei) ? Config::SERIAL_OK : Config::SERIAL_ALREADY_USED;
+				if (mysql_query("UPDATE serial_table SET imei = '$imei', appPackage = '$package' WHERE serial = '$serial'", $this->db->getDbLink())) return Config::SERIAL_OK;
+			} else 
+				return ($row['imei'] == $imei && $row['appPackage'] == $package) 
+						? Config::SERIAL_OK 
+						: Config::SERIAL_ALREADY_USED;
 			
 		} else return Config::SERIAL_WRONG;
 	}

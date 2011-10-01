@@ -63,6 +63,7 @@ $db = new Database();
 			<th>ID</th>
 			<th>Serial</th>
 			<th>Device ID</th>
+			<th>Package</th>
 			<th>Options</th>
 		</tr>
 		

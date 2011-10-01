@@ -71,7 +71,7 @@ public class ValidateAsync extends AsyncTask<String, Void, Integer> {
 		String serial = arg0[0], imei = arg0[1];
 		int response = 0;
 		try {
-			response = link.getSerialStatus(serial,imei);
+			response = link.getSerialStatus(serial,imei,context.getPackageName());
 		} catch (ClientProtocolException e) {
 			return RemoteUnlocker.SERVER_NO_CONNECTION;
 		} catch (IOException e) {
