@@ -27,6 +27,8 @@
 
  A message will report the outcome of the transaction (database installed successfully or error during installation)
 
+ _*Note* - For security reasons you should delete *setup.php* and set permissions to 644 (on unix system) for all RemoteUnlocker php files._
+
 === Install Android library ===
 
  To import the Android Library into your Eclipse workspace just follow the following few easy steps:
@@ -36,7 +38,7 @@
  # choose _General_->_Existing Projects into Workspace_ and press _Next >_
  # choose _Select archive file_, click _Browse_ and select the Android Library JAR file that you downloaded. Click _Finish_.
 
- _*Note*_ You could see an exclamation point or a red cross on the RemoteUnlocker project icon in the _Eclipse Package Explorer_. If so, just select menu _Project_->_Clean..._, choose _Clean all projects_ or _clean projects selected below_ (checking RemoteUnlocker project)
+ _*Note* - You could see an exclamation point or a red cross on the RemoteUnlocker *project icon* in the *Eclipse Package Explorer*. If so, just select menu *Project->Clean...*, choose *Clean all projects* or *Clean projects selected below* (checking RemoteUnlocker project)_
 
 == Usage ==
 
