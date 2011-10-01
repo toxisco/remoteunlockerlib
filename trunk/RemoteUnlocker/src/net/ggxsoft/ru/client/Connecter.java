@@ -26,6 +26,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.ggxsoft.ru.activity.RemoteUnlocker;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -61,13 +63,15 @@ public class Connecter {
 	 * 
 	 * @param serialNumber	il codice seriale da controllare
 	 * @param IMEI	l'ID/IMEI del dispositivo da controllare
+	 * @param appPackage	il package name dell'applicazione da controllare
 	 * 
 	 * @return	il codice di stato del seriale (codici statici in {@link RemoteUnlocker})
 	 * */
-	public int getSerialStatus(String serialNumber, String IMEI) throws IllegalStateException, ClientProtocolException, IOException {
+	public int getSerialStatus(String serialNumber, String IMEI, String appPackage) throws IllegalStateException, ClientProtocolException, IOException {
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		list.add(new BasicNameValuePair("serial", serialNumber));
 		list.add(new BasicNameValuePair("imei", IMEI));
+		list.add(new BasicNameValuePair("appPackage", appPackage));
 		post.setEntity(new UrlEncodedFormEntity(list));
 		ResponseReader reader = new ResponseReader(client.execute(post));
 		return reader.getResponse();
