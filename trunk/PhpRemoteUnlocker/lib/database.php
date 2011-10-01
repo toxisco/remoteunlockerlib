@@ -9,7 +9,10 @@ class Database {
 	const CREATE_TABLE = "CREATE TABLE IF NOT EXISTS serial_table 
 							(id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 							serial VARCHAR(255) NOT NULL, 
-							imei VARCHAR(255))";
+							imei VARCHAR(255),
+							appPackage VARCHAR(255))";
+	
+	const UPDATE_DB = "ALTER TABLE serial_table ADD COLUMN (appPackage VARCHAR(255))";
 	
 	public function __construct() {
 		$this->link = mysql_connect(Config::HOST,
@@ -24,6 +27,14 @@ class Database {
 	
 	public function getDbLink() {
 		return $this->link;
+	}
+	
+	public function isInstalled() {
+		return mysql_query("SELECT * FROM serial_table", $this->link);
+	}
+	
+	public function updateDb() {
+		return mysql_query(Database::UPDATE_DB, $this->link);
 	}
 	
 	public function setupDb() {
@@ -44,6 +55,7 @@ class Database {
 			echo '<tr><td>'.$row['id'].'</td>
 					<td>'.$row['serial'].'</td>
 					<td>'.$row['imei'].'</td>
+					<td>'.$row['appPackage'].'</td>
 					<td><a href="'.$_SERVER['PHP_SELF'].'?edit='.$row['id'].'">Edit</a> | <a href="'.$_SERVER['PHP_SELF'].'?delete='.$row['id'].'">Delete</a></td>
 				</tr>';
 		}
