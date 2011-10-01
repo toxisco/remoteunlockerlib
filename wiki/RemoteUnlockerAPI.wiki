@@ -25,6 +25,12 @@ Here are the permissions to set:
  * android.permission._*{{{READ_PHONE_STATE}}}*_
  * android.permission._*INTERNET*_
 
+ But precisely, why these permissions are needed? Well, _*INTERNET permission*_ is self-explanatory: _you need a connection *to allow the serial number to be checked online*_.
+
+ However, _*READ_PHONE_STATE permission*_ is needed _*to send the ID/IMEI of the device to the control script*_, in order to combine each serial number with *ONLY ONE* device.
+
+ _*The assignment of the ID/IMEI to a specific serial number occurs the first time that a device sends the control request*_. From that moment on, the serial number is matched to that specific ID/IMEI and if another device transmits the same serial number it would receive a SERIAL_ALREADY_IN_USE response.
+
 == {{{RemoteUnlocker}}} Class, {{{RemoteUnlockerDialog}}} Class and the {{{Unlockable}}} Interface ==
 
  Now that everything is ready you can start writing a few lines of code. The operation of the library is quite simple:
