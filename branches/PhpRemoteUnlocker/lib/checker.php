@@ -15,7 +15,7 @@ class Checker {
 	}
 	
 	public function checkSerial($serial, $imei, $package) {
-		$res1 = mysql_query("SELECT imei FROM serial_table WHERE serial = '$serial'", $this->db->getDbLink());
+		$res1 = mysql_query("SELECT imei, appPackage FROM serial_table WHERE serial = '$serial'", $this->db->getDbLink());
 		
 		if (!$res1) return Config::SERVER_NO_CONNECTION;
 		
