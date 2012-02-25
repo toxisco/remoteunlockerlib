@@ -38,9 +38,13 @@ public class ValidateAsync extends AsyncTask<String, Void, Integer> {
 	
 	/** 
 	 * Crea un oggetto di tipo AsyncTask
+	 * </br></br>
+	 * EN: It instantiates an object of type AsyncTask
 	 * 
-	 * @param context	il Context di riferimento
-	 * @param link	oggetto {@link Connecter} per la gestione della connessione
+	 * @param context	il Context di riferimento</br>
+	 * EN: App context
+	 * @param link	oggetto {@link Connecter} per la gestione della connessione</br>
+	 * EN: {@link Connecter} object for the connection management
 	 * */
 	public ValidateAsync(Context context, Connecter link) {
 		this.context = context;
@@ -49,6 +53,8 @@ public class ValidateAsync extends AsyncTask<String, Void, Integer> {
 	
 	/** 
 	 * Viene impostata e visualizzata una ProgressDialog
+	 * </br></br>
+	 * EN: A ProgressDialog will be set up and shown
 	 * */
 	@Override
 	protected void onPreExecute() {
@@ -61,10 +67,14 @@ public class ValidateAsync extends AsyncTask<String, Void, Integer> {
 	
 	/** 
 	 * Elaborazione della connessione e controllo del codice online
+	 * </br></br>
+	 * EN: Connection processing and online code verification
 	 * 
-	 * @param arg0	param-arg composto da seriale (1° param) e imei (2° param)
+	 * @param arg0	param-arg composto da seriale (1° param) e imei (2° param)</br>
+	 * EN: param-arg made by serial (1st param) and imei (2nd param)
 	 * 
-	 * @return	codice di stato del seriale (codici statici in {@link RemoteUnlocker})
+	 * @return	codice di stato del seriale (codici statici in {@link RemoteUnlocker})</br>
+	 * EN: serial status code (static codes in {@link RemoteUnlocker})
 	 * */
 	@Override
 	protected Integer doInBackground(String... arg0) {
@@ -83,11 +93,14 @@ public class ValidateAsync extends AsyncTask<String, Void, Integer> {
 	/** 
 	 * Il risultato del controllo online viene memorizzato nelle SharedPreferences:
 	 * il nome delle preferenze e quello dell'attributo è memorizzato staticamente
-	 * in {@link RemoteUnlocker}.
+	 * in {@link RemoteUnlocker}. La ProgressDialog viene chiusa.
+	 * </br></br>
+	 * EN: The result of the online verification will be stored into the SharedPreferences:
+	 * the preferences' and attrib's name is statically represented in {@link RemoteUnlocker}.
+	 * The ProgressDialog will be dismissed.
 	 * 
-	 * La ProgressDialog viene chiusa
-	 * 
-	 * @param result	il codice di stato ricevuto dalla validazione
+	 * @param result	il codice di stato ricevuto dalla validazione</br>
+	 * EN: the status code received after the validation process
 	 * */
 	@Override
 	protected void onPostExecute(Integer result) {

@@ -21,7 +21,9 @@ package net.ggxsoft.ru.client;
 /** 
  * Interfaccia da implementare in ogni Context del quale si vuole verificare
  * lo stato di unlock tramite seriale
- * 
+ * </br></br>
+ * EN: Interface to be implemented in every context where you want to check
+ * the unlock status by serial code
  * */
 public interface Unlockable {
 	
@@ -29,9 +31,13 @@ public interface Unlockable {
 	 * Questo metodo viene richiamato ogniqualvolta viene effettuata una
 	 * verifica online ({@link ValidateAsync}) oppure 
 	 * offline (<code>RemoteUnlocker.checkUnlockStatus(int response)</code>) del codice di unlock
+	 * </br></br>
+	 * EN: This method will be invoked whenever a check of the unlock code is made online ({@link ValidateAsync})
+	 * or offline (<code>RemoteUnlocker.checkUnlockStatus(int response)</code>)
 	 * 
 	 * @param response	il codice di risposta: i codici sono definiti staticamente
-	 * nella classe RemoteUnlocker
+	 * nella classe RemoteUnlocker</br>
+	 * EN: the response status code: the codes are statically defined in the RemoteUnlocker class
 	 * */
 	void onUnlockResponse(int response);
 	

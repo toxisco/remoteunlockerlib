@@ -24,6 +24,9 @@ import android.content.Context;
 /** 
  * RemoteUnlocker è un tool per sviluppatori Android che permette di implementare
  * un sistema di sblocco basato su validazione di un codice seriale online
+ * </br></br>
+ * EN: RemoteUnlocker is a tool for Android that allows developers to implement
+ * an unlock system based on online validation of a serial code
  * 
  * @author Luigi Vaira - www.ggxsoft.net
  * @version 1.0
@@ -36,11 +39,16 @@ public class RemoteUnlocker {
 	/** 
 	 * Il seriale è corretto (presente nel database) E l'ID del dispositivo
 	 * corrisponde a quello associato (se presente)
+	 * </br></br>
+	 * EN: Serial is correct (it's in DB) and the device ID matches
+	 * the one associated (if present)
 	 * */
 	public static final int SERIAL_OK = 10;
 	
 	/** 
 	 * Il seriale non è corretto (non è presente nel database)
+	 * </br></br>
+	 * EN: Serial is NOT correct (it's not present in DB)
 	 * */
 	public static final int SERIAL_WRONG = 11;
 	
@@ -48,12 +56,18 @@ public class RemoteUnlocker {
 	 * Il seriale è presente nel database ma è associato all'ID
 	 * di un altro dispositivo. Il seriale non è corretto per il
 	 * dispositivo corrente.
+	 * </br></br>
+	 * EN: Serial is present in DB but it's associated to another
+	 * device ID. Serial is not correct for the current device.
 	 * */
 	public static final int SERIAL_ALREADY_USED = 12;
 	
 	/** 
 	 * Non è stato possibile stabilire una connessione col server
 	 * o risposta sconosciuta.
+	 * </br></br>
+	 * EN: It was not possible to establish a connection to the server OR
+	 * Unknown Answer
 	 * */
 	public static final int SERVER_NO_CONNECTION = 13;
 	
@@ -63,8 +77,13 @@ public class RemoteUnlocker {
 	 * 
 	 * Viene richiamato automaticamente 
 	 * il metodo <code>Unlockable.onUnlockResponse(int response)</code> (vedi {@link Unlockable})
+	 * </br></br>
+	 * EN: Static method to be used every time is necessary an offline verification
+	 * of the unlock status.
+	 * The following method will be invoked automatically: 
+	 * <code>Unlockable.onUnlockResponse(int response)</code> (see {@link Unlockable})
 	 * 
-	 * @param context	il Context di riferimento
+	 * @param context	il Context di riferimento</br>EN: App context
 	 * */
 	public static void checkUnlockStatus(Context context) {
 		int unlocked = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(PREFERENCES_ATTRIBUTE, SERIAL_WRONG);
@@ -73,10 +92,12 @@ public class RemoteUnlocker {
 	
 	/** 
 	 * Metodo statico. Restituisce il codice di stato unlock memorizzato nelle SharedPreferences
+	 * </br></br>
+	 * EN: Static method. It return the unlock code stored into the SharedPreferences
+	 * @param context	il Context di riferimento</br>EN: App context
 	 * 
-	 * @param context	il Context di riferimento
-	 * 
-	 * @return	il codice di stato di unlock (costanti di {@link RemoteUnlocker})
+	 * @return	il codice di stato di unlock (costanti di {@link RemoteUnlocker})</br>
+	 * EN: status unlock code (const of {@link RemoteUnlocker})
 	 * */
 	public static int getUnlockResultCode(Context context) {
 		return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(PREFERENCES_ATTRIBUTE, SERIAL_WRONG);

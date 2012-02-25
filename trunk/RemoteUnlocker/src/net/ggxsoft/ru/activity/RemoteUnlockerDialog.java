@@ -51,9 +51,12 @@ public class RemoteUnlockerDialog extends Dialog {
 	/** 
 	 * Crea un oggetto di tipo Dialog. Se è presente un codice di sblocco valido vengono 
 	 * disabilitati sia il campo di inserimento del seriale che il pulsante "Ok".
-	 * 
-	 * @param context	il Context di riferimento
-	 * @param serverAddress	l'indirizzo dove è localizzato lo script rucheck.php
+	 * </br></br>
+	 * EN: It instantiates an object of type Dialog. If a valid unlock code is present,
+	 * input serial field and "Ok" button will be disabled.
+	 * @param context	il Context di riferimento</br>EN: App context
+	 * @param serverAddress	l'indirizzo dove è localizzato lo script rucheck.php</br>
+	 * EN: the URL where rucheck.php script is located
 	 * */
 	public RemoteUnlockerDialog(Context context, String serverAddress) {
 		super(context);
@@ -87,6 +90,9 @@ public class RemoteUnlockerDialog extends Dialog {
 	/** 
 	 * Imposta alcune View allo stato di non editabile/non abilitato
 	 * quando l'applicazione risulta sbloccata da un codice valido
+	 * </br></br>
+	 * EN: It sets some Views to the state of not editable/not enabled
+	 * when the app is unlocked by a valid serial code
 	 * */
 	protected void setUnlockedStatusViews() {
 		serial.setText(R.string.app_already_unlocked);
@@ -97,6 +103,8 @@ public class RemoteUnlockerDialog extends Dialog {
 
 	/** 
 	 * Crea un AsyncTask per la validazione del codice
+	 * </br></br>
+	 * EN: It creates an AsyncTask to validate the code
 	 * */
 	protected void validateProcedure() {
 		if (serial.getText().toString().equals("")) return;
@@ -106,6 +114,8 @@ public class RemoteUnlockerDialog extends Dialog {
 
 	/** 
 	 * Metodo di setup degli elementi grafici del Dialog
+	 * </br></br>
+	 * EN: Method to setup Dialog's UI elements
 	 * */
 	protected void initViews() {
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1);
@@ -150,6 +160,8 @@ public class RemoteUnlockerDialog extends Dialog {
 		
 		serial.setGravity(Gravity.CENTER);
 		serial.setWidth(240);
+		serial.setInputType(InputType.TYPE_TEXT_VARIATION_NORMAL);
+		serial.setMaxLines(1);
 		message.setGravity(Gravity.CENTER);
 		message.setText(R.string.insert_unlock);
 		message.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));

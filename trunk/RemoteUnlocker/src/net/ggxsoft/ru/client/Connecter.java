@@ -44,8 +44,11 @@ public class Connecter {
 	
 	/** 
 	 * Crea un oggetto di tipo Connecter utile alla gestione della connessione Http
-	 * 
-	 * @param serverAddress	l'url che contiene lo script rucheck.php
+	 * </br></br>
+	 * EN: It instantiates an object of type Connecter that takes care of
+	 * the HTTP connection
+	 * @param serverAddress	l'url che contiene lo script rucheck.php</br>
+	 * EN: the URL where rucheck.php script is located
 	 * */
 	public Connecter(String serverAddress) {
 		try {
@@ -60,12 +63,18 @@ public class Connecter {
 	/** 
 	 * Metodo che viene richiamato in {@link ValidateAsync} per il controllo
 	 * del codice seriale
+	 * </br></br>
+	 * EN: This method will be invoked in {@link ValidateAsync} to validate
+	 * the serial code
+	 * @param serialNumber	il codice seriale da controllare</br>
+	 * EN: serial code to be checked
+	 * @param IMEI	l'ID/IMEI del dispositivo da controllare</br>
+	 * EN: ID/IMEI to be checked along with the serial code
+	 * @param appPackage	il package name dell'applicazione da controllare</br>
+	 * EN: application package name to be checked
 	 * 
-	 * @param serialNumber	il codice seriale da controllare
-	 * @param IMEI	l'ID/IMEI del dispositivo da controllare
-	 * @param appPackage	il package name dell'applicazione da controllare
-	 * 
-	 * @return	il codice di stato del seriale (codici statici in {@link RemoteUnlocker})
+	 * @return	il codice di stato del seriale (codici statici in {@link RemoteUnlocker})</br>
+	 * EN: status unlock code (static codes in {@link RemoteUnlocker})
 	 * */
 	public int getSerialStatus(String serialNumber, String IMEI, String appPackage) throws IllegalStateException, ClientProtocolException, IOException {
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
@@ -79,6 +88,8 @@ public class Connecter {
 	
 	/** 
 	 * Classe di supporto per la lettura della risposta del server
+	 * </br></br>
+	 * EN: Support class for server response reading
 	 * */
 	protected class ResponseReader {
 		
@@ -86,8 +97,11 @@ public class Connecter {
 		
 		/** 
 		 * Costruttore di default
+		 * </br></br>
+		 * EN: Default constructor
 		 * 
-		 * @param resp	oggetto HttpResponse creato in seguito della connessione al server
+		 * @param resp	oggetto HttpResponse creato in seguito della connessione al server</br>
+		 * EN: HttpResponse object created by the connection to the server
 		 * */
 		ResponseReader(HttpResponse resp) throws IllegalStateException, IOException {
 			breader = new BufferedReader(new InputStreamReader(resp.getEntity().getContent()));
@@ -95,8 +109,10 @@ public class Connecter {
 		
 		/** 
 		 * Metodo di lettura della risposta
-		 * 
-		 * @return la stringa di risposta del server (da parsare)
+		 * </br></br>
+		 * EN: Reading method for the response
+		 * @return la stringa di risposta del server (da parsare)</br>
+		 * EN: answering server string (to be parsed)
 		 * */
 		int getResponse() throws IOException {
 			String svrresp = breader.readLine();
