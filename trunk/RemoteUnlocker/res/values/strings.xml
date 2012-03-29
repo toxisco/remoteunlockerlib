@@ -7,7 +7,7 @@
     <string name="progressdialog_title">Serial validation</string>
     <string name="progressdialog_message">Checking serial,\nplease wait&#8230;</string>
     <string name="powered_by">Powered by RemoteUnlocker</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="app_already_unlocked">Already unlocked</string>
 
 </resources>
