@@ -160,7 +160,7 @@ public class RemoteUnlockerDialog extends Dialog {
 		
 		serial.setGravity(Gravity.CENTER);
 		serial.setWidth(240);
-		serial.setInputType(InputType.TYPE_TEXT_VARIATION_NORMAL);
+		//serial.setInputType(InputType.TYPE_TEXT_VARIATION_NORMAL);	<-- no more valid from Android 2.2
 		serial.setMaxLines(1);
 		message.setGravity(Gravity.CENTER);
 		message.setText(R.string.insert_unlock);
