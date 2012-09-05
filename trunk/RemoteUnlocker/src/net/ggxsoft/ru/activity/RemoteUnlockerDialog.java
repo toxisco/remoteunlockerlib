@@ -166,6 +166,7 @@ public class RemoteUnlockerDialog extends Dialog {
 		message.setText(R.string.insert_unlock);
 		message.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 		powered.setText("Powered by RemoteUnlocker");
+		powered.setGravity(Gravity.CENTER);
 		powered.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 		powered.setOnClickListener(new View.OnClickListener() {
 			
