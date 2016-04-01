@@ -1,0 +1,67 @@
+
+
+# Introduction #
+
+> RemoteUnlocker is an Android developer tool with which you can implement a serial-codes control system in an easy and intuitive way.
+
+> The tool consists of an Android library to be imported in your projects and a simple backend, written in PHP + MySQL, that a developer (or whoever) can use to manage the serial-codes database.
+
+## Installation ##
+
+> Before you start using the library requires a few simple steps:
+
+  1. copy the php backend on your web hosting service and install the database (setup.php)
+  1. import the library into your workspace (eg Eclipse)
+
+### Install PHP Backend ###
+
+> To install the backend is sufficient:
+
+  1. download the file **remoteunlocker`_php_``<version>`.zip** (in _**Downloads**_ section) and extract the content in a local folder
+  1. open the file **lib/config.php** with your favorite text (or php) editor, edit HOST, USERNAME, PASSWORD, DATABASE and RU\_PASSWORD fields and then save the file. _**Note** - RU\_PASSWORD will be the access password for the admin backend._
+  1. copy all above files and folders to the choosen destination folder in your web hosting service. _**Note** - it is important to take a note of the path where you installed the backend (eg myweb.com/remoteunlocker)_
+  1. Run the script setup.php from the browser (eg _myweb.com/remoteunlocker/setup.php_)
+
+> A message will report the outcome of the transaction (database installed successfully or error during installation)
+
+> _**Note** - For security reasons you should delete **setup.php** and set permissions to 644 (on unix system) for all RemoteUnlocker php files._
+
+### Install Android library ###
+
+> To import the Android Library into your Eclipse workspace just follow the following few easy steps:
+
+  1. download the file **remoteunlocker`_android_``<version>`.zip** (in _**Downloads**_ section)
+  1. in your Eclipse environment select _File_->_Import..._
+  1. choose _General_->_Existing Projects into Workspace_ and press _Next >_
+  1. choose _Select archive file_, click _Browse_ and select the Android Library JAR file that you downloaded. Click _Finish_.
+
+> _**Note** - You could see an exclamation point or a red cross on the RemoteUnlocker **project icon** in the **Eclipse Package Explorer**. If so, just select menu **Project->Clean...**, choose **Clean all projects** or **Clean projects selected below** (checking RemoteUnlocker project)_
+
+## Usage ##
+
+> Once the library and the backend has been installed properly, the tool usage is divided into:
+
+  * Inclusion of serial numbers in the backend (_admin.php_)
+  * Import the library into your Android project and use the [RemoteUnlockerAPI](RemoteUnlockerAPI.md)
+
+### PHP Backend guide ###
+
+> The use of the php backend is very intuitive. Actually we just need to get started:
+
+  1. point your browser to the administrative script (eg _myweb.com/remoteunlocker/admin.php_)
+  1. just enter your password (_RU\_PASSWORD_ in the _config.php_ file) in the (very thin, atm) login page
+
+> What is shown below is the actual backend consists of:
+
+  * A field for entering serial keys
+  * A table-style list with serial numbers previously entered and the ID/IMEI of the associated device (if already registered), as well as some control options (edit/delete serials or ID/IMEI)
+
+> _**Note** - Edit option is not enabled at the moment_
+
+### Android Library Guide ###
+
+see [RemoteUnlockerAPI](RemoteUnlockerAPI.md) Guide
+
+## Demo ##
+
+> You can download a simple [Android demo project](http://code.google.com/p/remoteunlockerlib/downloads/detail?name=demoactivity_ru.jar&can=2&q=) that demonstrates the capabilities of this tool. Further info in the **Downloads** section.

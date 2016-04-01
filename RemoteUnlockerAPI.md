@@ -1,0 +1,115 @@
+
+
+# API Introduction #
+
+> Once the PHP backend has been installed on the web hosting service and the Android library has been properly imported into the Eclipse workspace (see [RemoteUnlocker](RemoteUnlocker.md) Guide for details) is missing very little to use the functionality that the library provides.
+
+### Setup your project ###
+
+> With the library already present in the workspace, here's what you need to do to import it into your project:
+    1. enter in your project's properties: you can right click and select _Properties_, or you can press _Alt + Enter_ or you can select _Properties_ from the _Project menu_
+    1. in the properties menu on the right, select _Android_
+    1. In the bottom right (Library Section) click on the _Add..._ button
+    1. select _RemoteUnlocker_ and click _Ok_
+    1. Click _Apply_ then _OK_ to apply the change and close the Properties window
+
+#### Edit `AndroidManifest.xml` ####
+
+> Now that the library has been successfully imported into your project you must add some _Permissions_ to the _**`AndroidManifest.xml`**_.
+
+Here are the permissions to set:
+
+  * android.permission._**`READ_PHONE_STATE`**_
+  * android.permission._**INTERNET**_
+
+> But precisely, why these permissions are needed? Well, _**INTERNET permission**_ is self-explanatory: _you need a connection **to allow the serial number to be checked online**_.
+
+> However, _**READ\_PHONE\_STATE permission**_ is needed _**to send the ID/IMEI of the device to the control script**_, in order to combine each serial number with **ONLY ONE** device.
+
+> _**The assignment of the ID/IMEI to a specific serial number occurs the first time that a device sends the control request**_. From that moment on, the serial number is matched to that specific ID/IMEI and if another device transmits the same serial number it would receive a SERIAL\_ALREADY\_IN\_USE response.
+
+## `RemoteUnlocker` Class, `RemoteUnlockerDialog` Class and the `Unlockable` Interface ##
+
+> Now that everything is ready you can start writing a few lines of code. The operation of the library is quite simple:
+
+  * you create a `RemoteUnlockerDialog` object, passing it certain parameters and show it to the user
+  * the user enters the unlock code that has previously received (via email or any other method)
+  * a connection to the backend php script - specifically rucheck.php - is established
+  * rucheck.php checks the received values ​​(serial code and device id/imei) and compares them with those in the database
+  * the script encodes the response as integer and some library "magic-stuff" reads that response and elaborates it
+  * at this point the Unlockable interface method `public void onUnlockResponse (int response);` is called and you can put in this method all the stuff that "transform" LITE version in PRO version
+
+### `RemoteUnlockerDialog` Class ###
+
+> This is the public constructor:
+
+```
+ public RemoteUnlockerDialog(Context context, String serverAddress);
+```
+
+where:
+  * **context** is _Context_ that is creating the dialog
+  * **serverAddress** is the path to your _rucheck.php_ script
+
+_**Note** - serverAddress must be in this format: **<host address>/<scripts folder>**, example: www.mysite.com/remoteunlocker - NO **HTTP://** BEFORE and NO **SLASH** AT THE END_
+
+> Assuming you're creating a `RemoteUnlockerDialog` object from a Context subclass (eg Activity), you can write this:
+
+```
+ new RemoteUnlockerDialog(this, "www.mysite.com/remoteunlocker").show();
+```
+
+everywhere in the code when you need to show this kind of dialog: an _Option Menu Item_ could be a nice choice!
+
+### `Unlockable` Interface ###
+
+> After `RemoteUnlockerDialog` has done its job, the outcome of the online check is saved in a special key in your app's `SharedPreferences`. Also, if the Context that created the Dialog implements the interface `Unlockable`, the following method will be invoked automatically:
+
+```
+ public void onUnlockResponse(int response);
+```
+
+> This is the method in which you should implement the "_transformation_" of your app, on the basis of the response (_int reponse_) received. So it is here that you can change a _Listener_, or eliminate an _array sizecap_, or change some `SharedPreferences` and so on.
+
+> Provided that the Context implements `Unlockable` interface, the aforementioned method is invoked:
+  * _**automatically**_ when you complete the online serial check
+  * _**on request**_, whenever a particular static method is called from the `RemoteUnlocker` class (we'll see soon).
+
+### `RemoteUnlocker` Class ###
+
+> In this class we find some important constants and two static methods that allow app state control.
+
+> The important constants in this class are those relating to the _return values_ ​​from php control script (_rucheck.php_) and are:
+
+```
+ public static final int SERIAL_OK = 10;
+ public static final int SERIAL_WRONG = 11;
+ public static final int SERIAL_ALREADY_USED = 12;
+ public static final int SERVER_NO_CONNECTION = 13;
+```
+
+> I guess there is not much to explain about the meaning of these constants, isn't it? :)
+
+The two methods however are:
+
+```
+ public static void checkUnlockStatus(Context context);
+```
+
+with whom you can call - at any point in the code and passing the reference context as parameter - the only method of the `Unlockable` interface (as long as _the calling context implements it_) after checking the value of the unlocking status in the `SharedPreferences`.
+
+and the method
+
+```
+ public static int getUnlockResultCode(Context context);
+```
+
+that returns the _unlock status code_ simply by passing the _context as a parameter_.
+
+## Conclusions ##
+
+> Now you just need to implement this library in your Android projects and make some _experiments_. Soon a few simple examples of practical implementation will be published. However, you are all invited to send **YOUR examples** in order to help those who want to make use of this - _in my opinion very useful_ - tool.
+
+> Hoping to see you made ​​it so pleasant, I wish a "Happy Coding!" to all!
+
+Luigi Vaira AKA gGx
